@@ -1,6 +1,6 @@
 import { CreateUserUseCase } from "../use-cases/create-user.js";
 import validator from "validator";
-import { badRequest, created, internalServerError } from "./helpers.js";
+import { badRequest, created, serverError } from "./helpers.js";
 
 export class CreateUserController {
   async execute(httpRequest) {
@@ -38,7 +38,7 @@ export class CreateUserController {
 
     } catch (error) {
       console.log(error);
-      return internalServerError();
+      return serverError();
     }
   }
 }
